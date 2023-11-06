@@ -19,20 +19,17 @@ for frames in range(0,50000):
             
             if cx>=cmdX/2-r*2+2:horiz = False
             elif cx <=-(cmdX/2-r*2+0.5):horiz = True
-            
-            screen[i] = empty #Хуй знает что делает, но её нельзя трогать
-            
+        
             if vertic == False: cy-= 0.00002
             elif vertic == True: cy += 0.00002
             
             if horiz == True: cx += 0.00004
             elif horiz == False: cx -= 0.00004
-            
-            #if i//lenx == y0 or i%lenx == x0:screen[i] = 0     #График.
-            
+
+            screen[i] = empty #Заполнение пустотой
             if (CenY-cy)**2 + (CenX-cx)**2/ratio <= r**2:screen[i] = symb   #Круг через формулы
             
     for value in screen.values():print(value,end="")    #Вывод
-    realx = round(cx)      #Округление до десе
-    realy = round(cy)
-    print(f"x:{realx} y:{realy}",11*"---------")
+    fullscreen = ""
+    for value in screen.values():fullscreen += str(value)
+    else:print(fullscreen,end="")
